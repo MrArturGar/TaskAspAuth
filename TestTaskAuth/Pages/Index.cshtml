@@ -1,0 +1,90 @@
+﻿@page
+@using TestTaskAuth.Helpers
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@Html.Raw(Alert.ShowAlert(Model.AlertMessage))
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-4 border m-2">
+            @if (Model.Detail == null)
+            {
+                <form method="post">
+                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                    <div class="form-group m-2">
+                        <label asp-for="Credential.Username"></label>
+                        <input class="form-control" type="text" asp-for="Credential.Username"></input>
+                        <span class="text-danger" asp-validation-for="Credential.Username"></span>
+                    </div>
+                    <div class="form-group m-2">
+                        <label asp-for="Credential.Password"></label>
+                        <input class="form-control" type="password" asp-for="Credential.Password"></input>
+                        <span class="text-danger" asp-validation-for="Credential.Password"></span>
+                    </div>
+                    <div class="form-group text-center">
+                        <input type="submit" formnovalidate class="btn border m-2" value="Submit" />
+                    </div>
+                </form>
+            }
+            else
+            {
+                <form>
+                    <div class="form-group m-2">
+                        <label asp-for="Detail.FirstName"></label>
+                        <p>@Model.Detail.FirstName</p>
+                    </div>
+                    <div class="form-group m-2">
+                        <label asp-for="Detail.LastName"></label>
+                        <p>@Model.Detail.LastName</p>
+                    </div>
+                    <div class="form-group m-2">
+                        <label asp-for="Detail.Company"></label>
+                        <p>@Model.Detail.Company</p>
+                    </div>
+                    <div class="form-group m-2">
+                        <label asp-for="Detail.Address"></label>
+                        <p>@Model.Detail.Address</p>
+                    </div>
+                    <div class="form-group m-2">
+                        <label asp-for="Detail.City"></label>
+                        <p>@Model.Detail.City</p>
+                    </div>
+                    <div class="form-group m-2">
+                        <label asp-for="Detail.Country"></label>
+                        <p>@Model.Detail.Company</p>
+                    </div>
+                    <div class="form-group m-2">
+                        <label asp-for="Detail.Zip"></label>
+                        <p>@Model.Detail.Zip</p>
+                    </div>
+                    <div class="form-group m-2">
+                        <label asp-for="Detail.Phone"></label>
+                        <p>@Model.Detail.Phone</p>
+                    </div>
+                    <div class="form-group m-2">
+                        <label asp-for="Detail.Mobile"></label>
+                        <p>@Model.Detail.Mobile</p>
+                    </div>
+                    <div class="form-group m-2">
+                        <label asp-for="Detail.Email"></label>
+                        <p>@Model.Detail.Email</p>
+                    </div>
+                    <div class="form-group m-2">
+                        <label asp-for="Detail.MobileConfirm"></label>
+                        <p>@Model.Detail.MobileConfirm</p>
+                    </div>
+                    <div class="form-group m-2">
+                        <label asp-for="Detail.EmailConfirm"></label>
+                        <p>@Model.Detail.EmailConfirm</p>
+                    </div>
+                    <div class="form-group m-2">
+                        <label asp-for="Detail.Status"></label>
+                        <p>@Model.Detail.Status</p>
+                    </div>
+                </form>
+            }
+        </div>
+    </div>
+</div>
